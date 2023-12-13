@@ -198,7 +198,7 @@ nav{
 }
 
 .section-2{
-  padding: 0 1rem;
+  padding: 0 1rem 2rem 1rem;
 
   .word--wrapper{
     width: 100%;
@@ -273,16 +273,24 @@ nav{
           .synonyms{
             margin: .5rem 0;
 
-            span{
+            .name{
               font-weight: 700;
+            }
+
+            .synonym{
+              color: var(--main-color);
             }
           }
 
           .antonyms{
             margin: .5rem 0;
 
-            span{
+            .name{
               font-weight: 700;
+            }
+
+            .antonym{
+              color: var(--main-color);
             }
           }
 
@@ -290,11 +298,34 @@ nav{
             font-style: italic;
             margin: .5rem 0;
           }
+
+          
         }
+      }
+    }
+  
+  }
+
+  .recent--wrapper{
+    color: var(--text-color);
+
+    .recent{
+      margin: .5rem 0;
+
+      .name{
+        font-weight: 700;
+      }
+
+      .recent-word{
+        color: var(--main-color);
       }
     }
   }
 }
 
 
-
+@media screen and (min-width: 768px) {
+  body{
+    padding: 0 16rem;
+  }  
+}

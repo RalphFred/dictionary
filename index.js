@@ -29,6 +29,8 @@ const changeTheme = () => {
 
 // --------------------------------- Search ----------------------------------------
 const input = document.getElementById("input");
+let recent = [];
+console.log(recent)
 
 const searchWord = () => {
   const inputvalue = input.value;
@@ -41,6 +43,11 @@ const searchWord = () => {
   }
 };
 
+const wordClick = (word) => {
+  input.value = word;
+  searchWord();
+}
+
 input.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     searchWord();
@@ -50,7 +57,9 @@ input.addEventListener("keydown", (e) => {
 // ------------------------------------ Fetching Data --------------------------------
 const wordWrapper = document.getElementById("word--wrapper");
 const meaningWrapper = document.getElementById("meaning--wrapper");
-let audioUrl = ''
+const recentWrapper = document.getElementById("recent--wrapper");
+
+let audioUrl = '';
 
 async function fetchData(url) {
   try {
@@ -61,8 +70,10 @@ async function fetchData(url) {
     }
 
     const data = await response.json();
-
     audioUrl = data[0].phonetics[0].audio;
+
+    recent.push(data[0].word);
+    console.log(recent)
     
 
     wordWrapper.innerHTML = `
@@ -88,11 +99,15 @@ async function fetchData(url) {
         <li><span>${word.meanings[0].definitions[0].definition}</span>
 
         ${word.meanings[0].definitions[0].synonyms != '' ? `<div class="synonyms">
-        <span>Synonyms: </span> ${word.meanings[0].definitions[0].synonyms.join(', ')}
+        <span class="name">Synonyms: </span> ${word.meanings[0].definitions[0].synonyms.map((synonym) => `
+          <span class="synonym" onclick="wordClick('${synonym}')">${synonym}</span>
+        `)}
       </div>` : ''}
 
         ${word.meanings[0].definitions[0].antonyms != '' ? `<div class="antonyms">
-        <span>Antonyms: </span> ${word.meanings[0].definitions[0].antonyms.join(', ')}
+        <span class="name">Antonyms: </span> ${word.meanings[0].definitions[0].antonyms.map((antonym) => `
+          <span class="antonym" onclick="wordClick('${antonym}')">${antonym}</span>
+        `)}
       </div>` : ''}
 
         ${word.meanings[0].definitions[0].example ? `<div class="sentence">
@@ -105,8 +120,27 @@ async function fetchData(url) {
     );
 
     meaningWrapper.innerHTML = displayeMeaning.join("");
+
+
+    recentWrapper.innerHTML = `
+    ${recent != '' ? `<div class="recent">
+    <span class="name">Recent: </span> ${recent.map((recent) => `
+      <span class="recent-word" onclick="wordClick('${recent}')">${recent}</span>
+    `)}
+  </div>` : ''}
+    `
+
   } catch (error) {
-    console.log(error);
+    wordWrapper.innerHTML = `
+      <h1> WORD NOT FOUND</h1>
+    `
+
+    meaningWrapper.innerHTML = `
+      
+    `
+    recentWrapper.innerHTML = `
+
+    `
   }
 }
 
