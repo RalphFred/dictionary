@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap');
 
-:root{
+:root {
   --dark: #050505;
   --dark-blue: #183153;
   --dark-accent: #1f1f1f;
@@ -12,31 +12,30 @@
   --light-accent-blue: #d7edff;
 }
 
-body.light-mode{
+body.light-mode {
   --bg-color: var(--light);
   --text-color: var(--dark);
   --main-color: var(--light-blue);
   --accent-color: var(--light-accent);
-  --accent-blue: var(--light-accent-blue)
+  --accent-blue: var(--light-accent-blue);
 }
 
-body.dark-mode{
+body.dark-mode {
   --bg-color: var(--dark);
   --text-color: var(--light);
   --main-color: var(--light-blue);
   --accent-color: var(--dark-accent);
-  --accent-blue: var(--dark-accent-blue)
+  --accent-blue: var(--dark-accent-blue);
 }
 
-
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
 }
 
-body{
+body {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -45,8 +44,7 @@ body{
   font-family: 'Montserrat Alternates', sans-serif;
 }
 
-
-nav{
+nav {
   width: 100%;
   padding: 1rem;
   display: flex;
@@ -112,12 +110,11 @@ nav{
   height: 24px;
 }
 
-/* .switch:hover */.sun svg {
+.sun svg {
   animation: rotate 15s linear infinite;
 }
 
 @keyframes rotate {
- 
   0% {
     transform: rotate(0);
   }
@@ -127,12 +124,11 @@ nav{
   }
 }
 
-/* .switch:hover */.moon svg {
+.moon svg {
   animation: tilt 5s linear infinite;
 }
 
 @keyframes tilt {
- 
   0% {
     transform: rotate(0deg);
   }
@@ -163,169 +159,173 @@ nav{
 }
 
 /* ----------------------------- Section 1 ------------------------------ */
-.section-1{
+.section-1 {
   padding: 0 1rem;
-  
-
-  .search{
-    width: 100%;
-    position: relative;
-    margin: 1rem 0;
-
-    input{
-      width: 100%;
-      padding: 1.2rem 1rem;
-      color: var(--text-color);
-      background-color: var(--accent-color);
-      border: none;
-      border-radius: 8px;
-      font-family: 'Montserrat Alternates', sans-serif;
-      font-weight: 700;
-      outline: none;
-    }
-  
-    div{
-      padding: 1.1rem;
-      display: inline-block;
-      position: absolute;
-      right: 0;
-  
-      i{
-        color: var(--main-color);
-      }
-    }
-  }
 }
 
-.section-2{
+.section-1 .search {
+  width: 100%;
+  position: relative;
+  margin: 1rem 0;
+}
+
+.section-1 .search input {
+  width: 100%;
+  padding: 1.2rem 1rem;
+  color: var(--text-color);
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 8px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 700;
+  outline: none;
+}
+
+.section-1 .search .icon {
+  padding: 1.1rem;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+}
+
+.section-1 .search .icon i{
+  color: var(--main-color);
+}
+
+
+
+/* ------------------------ Section 2 ------------------------- */
+
+.section-2 {
   padding: 0 1rem 2rem 1rem;
-
-  .word--wrapper{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    color: var(--text-color);
-    margin: 1rem 0;
-
-    .word{
-
-      h1{
-        margin-bottom: .25rem;
-      }
-    }
-  
-    .audio{
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: var(--accent-blue);
-
-      i{
-        color: var(--main-color);
-      }
-    }
-  }
-
-  .meaning--wrapper{
-    color: var(--text-color);
-
-
-    .partofspeech{
-      display: flex;
-      align-items: center;
-      margin: 2rem 0 0 0;
-
-      p{
-        margin-right: .5rem;
-      }
-
-      span{
-        display: inline-block;
-        width:100%;
-        height: 1px;
-        background-color: var(--text-color);
-      }
-    }
-
-    .meaning{
-      margin: 1rem 0;
-
-
-      ul{
-        padding: 0 1rem;
-        list-style: none;
-
-        li{
-
-          &::before{
-            content: "\2022";
-            color: var(--main-color);
-            font-weight: 700;
-            font-size: x-large;
-            display: inline-block;
-            width: 1rem;
-            margin-left: -1rem;
-          }
-          
-          .synonyms{
-            margin: .5rem 0;
-
-            .name{
-              font-weight: 700;
-            }
-
-            .synonym{
-              color: var(--main-color);
-            }
-          }
-
-          .antonyms{
-            margin: .5rem 0;
-
-            .name{
-              font-weight: 700;
-            }
-
-            .antonym{
-              color: var(--main-color);
-            }
-          }
-
-          .sentence{
-            font-style: italic;
-            margin: .5rem 0;
-          }
-
-          
-        }
-      }
-    }
-  
-  }
-
-  .recent--wrapper{
-    color: var(--text-color);
-
-    .recent{
-      margin: .5rem 0;
-
-      .name{
-        font-weight: 700;
-      }
-
-      .recent-word{
-        color: var(--main-color);
-      }
-    }
-  }
 }
+
+.section-2 .word--wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-color);
+  margin: 1rem 0;
+}
+
+.section-2 .word--wrapper .word h1 {
+  margin-bottom: .25rem;
+}
+
+.section-2 .word--wrapper .audio {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--accent-blue);
+}
+
+.section-2 .word--wrapper .audio i {
+  color: var(--main-color);
+}
+
+.section-2 .meaning--wrapper {
+  color: var(--text-color);
+}
+
+.section-2 .meaning--wrapper .partofspeech {
+  display: flex;
+  align-items: center;
+  margin: 2rem 0 0 0;
+}
+
+.section-2 .meaning--wrapper .partofspeech p {
+  margin-right: .5rem;
+}
+
+.section-2 .meaning--wrapper .partofspeech span {
+  display: inline-block;
+  width: 100%;
+  height: 1px;
+  background-color: var(--text-color);
+}
+
+.section-2 .meaning--wrapper .meaning {
+  margin: 1rem 0;
+}
+
+.section-2 .meaning--wrapper .meaning ul {
+  padding: 0 1rem;
+  list-style: none;
+}
+
+.section-2 .meaning--wrapper .meaning ul li::before {
+  content: "\2022";
+  color: var(--main-color);
+  font-weight: 700;
+  font-size: x-large;
+  display: inline-block;
+  width: 1rem;
+  margin-left: -1rem;
+}
+
+.section-2 .meaning--wrapper .meaning ul li .synonyms {
+  margin: .5rem 0;
+}
+
+.section-2 .meaning--wrapper .meaning ul li .synonyms .name {
+  font-weight: 700;
+}
+
+.section-2 .meaning--wrapper .meaning ul li .synonyms .synonym {
+  color: var(--main-color);
+}
+
+.section-2 .meaning--wrapper .meaning ul li .antonyms {
+  margin: .5rem 0;
+}
+
+.section-2 .meaning--wrapper .meaning ul li .antonyms .name {
+  font-weight: 700;
+}
+
+.section-2 .meaning--wrapper .meaning ul li .antonyms .antonym{
+  color: var(--main-color);
+}
+
+.section-2 .meaning--wrapper .meaning ul li .sentence{
+font-style: italic;
+margin: .5rem 0;
+}
+
+
+
+.recent--wrapper {
+  color: var(--text-color);
+}
+
+.recent--wrapper .recent {
+  margin: .5rem 0;
+}
+
+.recent--wrapper .recent .name {
+  font-weight: 700;
+}
+
+.recent--wrapper .recent .recent-word {
+  color: var(--main-color);
+}
+
+
+
+
 
 
 @media screen and (min-width: 768px) {
   body{
-    padding: 0 16rem;
+    padding: 0 4rem;
+  }  
+}
+
+@media screen and (min-width: 1024px) {
+  body{
+    padding: 0 8rem;
   }  
 }
